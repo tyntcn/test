@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="../../static/css/common.css">
+    <link rel="stylesheet" href="../../static/css/store.css">
+    <script src="../../static/js/jquery-1.8.2.min.js"></script>
+    <script src="../../static/js/common.js"></script>
+    <script src="../../static/js/knockout.js"></script>
+    <script src="../../static/js/knockout.mapping.js"></script>
+    <title>欧思路-选品中心</title>
+</head>
+<body>
+<section id="main" class="main-100">
+    <div class="flex-box">
+        <header id="common-module-header">
+            <a href="" class="aside">
+                <img src="../../static/images/arrow.png" alt="">
+            </a>
+            <div class="header-desc">
+                <form action="/search" method="post" id="form-search-value">
+                <div class="header-desc-search dflex flex-center">
+                        <input type="text" name="keyword" placeholder="搜索店铺内宝贝" class="flex-1" id="search-value">
+                        <em class="submit-form">
+                            <a href="javascript:void(0)">
+                                <img src="/static/images/store/search.png" alt="">
+                            </a>
+                        </em>
+
+                    <script>
+                        $('.submit-form').click(function(){
+                            if($.trim($('#search-value').val()).length==0){
+                                return
+                            }
+                            else{
+                                $('#form-search-value').submit()
+                            }
+                        })
+                    </script>
+                </div>
+                </form>
+            </div>
+            <a href="" class="aside acircle">
+                <img src="../../static/images/circle.png" alt="">
+            </a>
+        </header>
+        <div class="flex-box-con">
+            <!--焦点图-->
+            <div class="store-focus">
+                <ul class="clearfix">
+                    <li>
+                        <a href="">
+                            <img src="../../static/images/store/focus.jpg" alt="">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <!--店铺logo-->
+            <div class="store-logo">
+                <div class="store-logo-box">
+                    <a href="">
+                        <img src="../../static/images/store/logo.jpg" alt="">
+                    </a>
+                    <span>
+                        欧思路
+                    </span>
+                </div>
+            </div>
+            <!--店铺菜单部分-->
+            <nav>
+                <div class="nav-li">
+                    <ul class="">
+                        <li>
+                            <a href="" class="on">
+                                <p>
+                                    <i class="iconfont">&#xe604;</i>
+                                </p>
+                                <p>
+                                    所有商品
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <p>
+                                    <i class="iconfont">&#xe606;</i>
+                                </p>
+                                <p>
+                                    新品上架
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <p>
+                                    <i class="iconfont">&#xe60d;</i>
+                                </p>
+                                <p>
+                                    爆款热卖
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <p>
+                                    <i class="iconfont">&#xe60a;</i>
+                                </p>
+                                <p>
+                                    品牌特卖
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+
+                    <ul class="">
+                        <li>
+                            <a href="">
+                                <p>
+                                    <i class="iconfont">&#xe607;</i>
+                                </p>
+                                <p>
+                                    T恤专区
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <p>
+                                    <i class="iconfont">&#xe608;</i>
+                                </p>
+                                <p>
+                                    衬衫专区
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <p>
+                                    <i class="iconfont">&#xe602;</i>
+                                </p>
+                                <p>
+                                    裙装专区
+                                </p>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <p>
+                                    <i class="iconfont">&#xe60c;</i>
+                                </p>
+                                <p>
+                                    真丝专区
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <!--内容对应部分-->
+            <div class="store-con" style="padding: 0;">
+                <div class="store-con-part">
+                    <div class="store-con-part-hd clearfix">
+                        <span>
+                            最新产品
+                        </span>
+                        <em>
+                            PRODUCTS
+                        </em>
+                        <a href="">
+                            <b>|</b>
+                            <i>更多</i>
+                        </a>
+                    </div>
+                    <div class="store-con-part-goods">
+                        <ul class="clearfix" data-bind="foreach:selectList">
+                            <li class="">
+                                <a href="">
+                                    <img src="../../static/images/store/selectproduct.png" data-bind="attr:{src:pic}" alt="">
+                                </a>
+                                <div class="selectproduct">
+                                    <div class="selectproduct-spec" data-bind="text:name">
+                                        新品时尚女装圆领七分袖套头衫
+                                    </div>
+                                    <div class="selectproduct-oprate dflexall">
+                                        <div class="selectproduct-oprate-box flex-1">
+                                            <div class="selectproduct-price" data-bind="text:'￥'+price">
+                                                ￥168
+                                            </div>
+                                            <div class="selectproduct-get" data-bind="text:'返'+goldspercent+'%'">
+                                                佣:￥14
+                                            </div>
+                                        </div>
+                                        <div class="selectproduct-oprate-checked">
+                                            <div class="selectproduct-oprate-checked-1" data-bind="click:$root.chooseGoods">
+                                                <img src="../../static/images/store/cheched-not.png" data-bind="attr:{src:checked()?'../../static/images/store/cheched.png':'../../static/images/store/cheched-not.png'}" alt="">
+                                            </div>
+                                            <div class="selectproduct-oprate-checked-2">
+                                                选取
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="loading">
+                        <i class="iconfont animate">&#xe613;</i>加载中...
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="" class="select-btn-sub" data-bind="click:sub">
+            确定
+        </a>
+        <!--尾部菜单-->
+        <footer class="footer">
+            <ul class="dflex">
+                <li class="currentpage">
+                    <a href="">
+                        <p>
+                            <i class="iconfont">&#xe60e;</i>
+                        </p>
+                        <p>
+                            首页
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <p>
+                            <i class="iconfont">&#xe603;</i>
+                        </p>
+                        <p>
+                            分类
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <p>
+                            <i class="iconfont">&#xe605;</i>
+                        </p>
+                        <p>
+                            购物车
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <p>
+                            <i class="iconfont">&#xe609;</i>
+                        </p>
+                        <p>
+                            我的小店
+                        </p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <p>
+                            <i class="iconfont">&#xe60b;</i>
+                        </p>
+                        <p>
+                            登录
+                        </p>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+</section>
+<script>
+    function map(data){
+        ko.utils.arrayForEach(data,function(da){
+            da.checked = ko.observable(false);
+        });
+        return data;
+    }
+    var loadStep =1;//只有在1的时候才会去服务器请求数据
+    function model(){
+        var self = this;
+        self.selectList = ko.observableArray([]);
+        self.page =1;
+        self.totalpage = null;
+        self.get = function(type){
+            loadStep=2;
+            $('.loading').show();
+            asynGet('/member/goods/select',{page:self.page,pagesize:10}).done(function(data){
+                if(self.page==1&&!self.totalpage){
+                    self.totalpage = Math.ceil(data.data.pager.total/data.data.pager.size)
+                }
+                if(!type){
+                    self.selectList(map(data.data.rows))
+                }
+                else{
+                    ko.utils.arrayForEach(data.data.rows,function(da){
+                        da.checked =ko.observable(false);
+                        self.selectList.push(da);
+                    })
+                }
+                self.page++;
+                $('.loading').hide();
+                loadStep=1;
+            })
+        };
+        self.loadMore = function(){
+            $('.flex-box-con').scroll(function(d){
+                if(($(this).get(0).scrollHeight-$(this).scrollTop()-$(this).height())<5){
+                    if(loadStep==1){
+                        if((self.page-1)==self.totalpage){
+                            return
+                        }
+                        self.get(1);
+                    }
+                }
+            })
+        };
+        self.chooseGoods = function(e){
+            e.checked(!e.checked());
+        };
+        self.get();//初始化
+        self.loadMore();//初始化
+        self.subData = ko.computed(function(){
+            var arr =[];
+            ko.utils.arrayForEach(self.selectList(),function(da){
+                if(da.checked()){
+                    arr.push(da.id);
+                }
+            });
+            return arr.join(',');
+        });
+        self.sub = function(){
+            if(self.subData().length==0){
+                Three.showMaskBOx({content:'未选择任何商品'});
+                return;
+            }
+            asynGet('/member/goods/add',{ids:self.subData()},'POST').done(function(data){
+                if(data.success){
+                    Three.showMaskBOx({content:'选品成功！'});
+                    self.page =1;
+                    self.totalpage = null;
+                    self.get();
+                }
+                else{
+                    Three.showMaskBOx({content:data.msg});
+                }
+            })
+        }
+    }
+    var vm = new model();
+    ko.applyBindings(vm)
+</script>
+</body>
+</html>
