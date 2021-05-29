@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="/static/css/common.css">
+    <link rel="stylesheet" href="/static/css/member.css">
+    <link rel="stylesheet" href="/static/css/store.css">
+    <script src="/static/js/jquery-1.8.2.min.js"></script>
+    <script src="/static/js/common.js"></script>
+    <style>
+        .order-success-price{
+            background: #fff;
+            font-size: 2.3rem;
+            color: #222225;
+            padding:2% 0;
+        }
+        .order-confirm-part{
+            margin-bottom:0;
+        }
+        .order-success-btns a{
+            text-align: center;
+            font-size:2.2rem;
+            color: #5b5e5e;
+        }
+        .order-success-btns i{
+            color: #77b6fc;
+            font-size:2.8rem;
+        }
+        .order-success-btns{
+            background: #fff;
+        }
+        .order-success-btns-box{
+            padding:2% 0;
+            border-top:1px solid #e7e7e7;
+            border-bottom:1px solid #e7e7e7;
+        }
+        .address-item-box p{
+            border-bottom:none;
+        }
+        .order-confirm-part{
+            background: #fff;
+            border-bottom:1px solid #e7e7e7;
+        }
+        .address-item-part{
+            margin-left:0;
+        }
+        .order-success{
+            padding:0 2%;
+            background: #fff;
+        }
+    </style>
+    <title>订单详情</title>
+</head>
+<body>
+<section id="main" class="main-100" style="overflow: hidden;">
+        <header id="common-module-header">
+            <a href="javascript:void(0)" onclick="back()" class="aside">
+                <img src="/static/images/arrow.png" alt="">
+            </a>
+            <div class="header-desc">
+                <div class="header-desc-titke">
+                    订单详情
+                </div>
+            </div>
+            <a href="javascript:void(0)" class="aside acircle">
+                <img src="/static/images/circle.png" alt="">
+                <b class="msg-num"></b>
+            </a>
+            <div class="err-menu-back" style="display: none;">
+                <div class="err-menu-back-box">
+                    <div class="jiao">
+
+                    </div>
+                    <ul>
+                        <li class="">
+                            <a href="/member#message">
+                                <i class="iconfont">&#xe60f;</i>消息
+                                <b class="msg-num"></b>
+                            </a>
+                        </li>
+                        <li class=""><a href="/"><i class="iconfont">&#xe60e;</i>首页</a></li>
+                        <li class=""><a href="/cart"><i class="iconfont">&#xe605;</i>购物车</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </header>
+        <div class="express-desc">
+            <img src="../../static/images/order-pay-over.jpg" alt="">
+        </div>
+        <div class="order-success">
+            <a href="" class="order-confirm-part">
+                <div class="address-item dflex">
+                    <em class="address-item-part">
+                        <img src="../../static/images/member/i3.png" alt="">
+                    </em>
+                    <div class="address-item-box flex-1">
+                        <div class="address-item-box-hd">
+                    <span>
+                        <?php echo $data['Linkman'];?>
+                    </span>
+                    <span>
+                        <?php echo $data['Mobile'];?>
+                    </span>
+                        </div>
+                        <p>
+                            <?php echo $data['Address'];?>
+                        </p>
+                    </div>
+                </div>
+            </a>
+            <div class="order-success-price dflexall">
+                <em class="address-item-part" style="visibility: hidden">
+                    <img src="../../static/images/member/i3.png" alt="">
+                </em>
+                <div class="order-success-p flex-1">
+                    商品总额：￥<?php echo $data['Total'];?>
+                </div>
+            </div>
+            <div class="order-success-btns ">
+                <div class="order-success-btns-box dflexall">
+                    <a href="/" class="flex-1">
+                        <i class="iconfont">&#xe60e;</i>
+                        <em>
+                            返回首页
+                        </em>
+                    </a>
+                    <a href="/member#order" class="flex-1">
+                        <i class="iconfont">&#xe611;</i>
+                        <em>
+                            查看订单
+                        </em>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+</section>
+</body>
+</html>
