@@ -1,0 +1,71 @@
+<!--尾部菜单-->
+<footer class="footer">
+    <ul class="dflex">
+        <li<?php if($thiscontroller=='indexController') echo ' class="currentpage"';?>>
+            <a href="/">
+                <p>
+                    <i class="iconfont">&#xe60e;</i>
+                </p>
+                <p>
+                    首页
+                </p>
+            </a>
+        </li>
+        <li<?php if($thiscontroller=='classifyController') echo ' class="currentpage"';?>>
+            <a href="/classify">
+                <p>
+                    <i class="iconfont">&#xe603;</i>
+                </p>
+                <p>
+                    分类
+                </p>
+            </a>
+        </li>
+        
+        <li<?php if($thiscontroller=='marketController') echo ' class="currentpage"';?>>
+            <a href="/market/list">
+                <p>
+                    <i class="iconfont">&#xe609;</i>
+                </p>
+                <p>
+                    店铺
+                </p>
+            </a>
+        </li>
+        <li<?php if($thiscontroller=='cartController') echo ' class="currentpage"';?>>
+            <a href="/cart">
+                <p>
+                    <i class="iconfont">&#xe605;</i>
+                </p>
+                <p>
+                    购物车
+                </p>
+            </a>
+        </li>
+        <li id="clogin">
+            <a href="/login?ref=<?php echo $uri;?>">
+                <p>
+                    <i class="iconfont">&#xe60b;</i>
+                </p>
+                <p>
+                    登录
+                </p>
+            </a>
+        </li>
+    </ul>
+</footer>
+<script type="text/javascript">
+$.get('/member/api/userinfo').done(function(data){
+    if(data.islogin==false){
+        $("header .msg-num").hide();
+    }else{
+        $("#clogin p:last").text("我的");
+        $("#clogin a").attr("href",'/member');
+        if(data.message>0) {
+            $("header .msg-num").show();
+        }else{
+            $("header .msg-num").hide();
+        }
+    }
+});    
+</script>
